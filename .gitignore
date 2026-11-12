@@ -1,0 +1,10 @@
+# Build artifacts
+.build/
+work/
+*.xcresult
+DerivedData/
+.DS_Store
+
+# Xcode
+xcuserdata/
+*.xcuserstate

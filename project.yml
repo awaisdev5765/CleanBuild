@@ -1,0 +1,55 @@
+name: CleanBuild
+options:
+  bundleIdPrefix: com.cleanbuild
+  deploymentTarget:
+    macOS: "14.0"
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    MACOSX_DEPLOYMENT_TARGET: 14.0
+targets:
+  CleanBuild:
+    type: application
+    platform: macOS
+    sources:
+      - CleanBuild
+    resources:
+      - CleanBuild/Resources
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cleanbuild.app
+        PRODUCT_NAME: CleanBuild
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: CleanBuild
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        INFOPLIST_KEY_NSHumanReadableCopyright: "Copyright © 2026 CleanBuild"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGNING_ALLOWED: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        ENABLE_APP_SANDBOX: NO
+        MARKETING_VERSION: 1.0.0
+        CURRENT_PROJECT_VERSION: 1
+  CleanBuildTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - Tests
+    dependencies:
+      - target: CleanBuild
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cleanbuild.tests
+        GENERATE_INFOPLIST_FILE: YES
+  CleanBuildUITests:
+    type: bundle.ui-testing
+    platform: macOS
+    sources:
+      - UITests
+    dependencies:
+      - target: CleanBuild
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.cleanbuild.uitests
+        GENERATE_INFOPLIST_FILE: YES
+
+
